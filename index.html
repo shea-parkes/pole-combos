@@ -1,10 +1,19 @@
 <html>
   <body>
     <div>
-      <h1>Pole Combo Generator</h1>
-      <p>This will generate pole combos of the requested size.</p>
+      <h2>Pole Combo Generator</h2>
+      <label for="sizeSelect">Number of moves:</label>
+      <select id="sizeSelect" name="combo_size">
+        <option value="3" selected>3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+      </select>
+      <br />
+      <button type="button" onclick="notImplemented()">Generate Combo</button>
     </div>
-
     <script type="module" src="load_moves.js"></script>
   </body>
 </html>
