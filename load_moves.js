@@ -2,7 +2,7 @@ import Papa from "https://cdn.skypack.dev/papaparse@5.4.1";
 import * as R from "https://cdn.skypack.dev/rambda";
 window.R = R;
 
-const cleaner = R.filter(R.pipe(R.propEq("Entry States", ""), R.not));
+const cleaner = R.filter(R.pipe(R.propEq("", "Entry States"), R.not));
 
 Papa.parse("moves.csv", {
   download: true,
