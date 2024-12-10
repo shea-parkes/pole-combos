@@ -1,5 +1,5 @@
 import Papa from "https://cdn.skypack.dev/papaparse@5.4.1";
-import * as R from "https://cdn.skypack.dev/rambda";
+import * as R from "https://cdn.skypack.dev/rambda@9.4.0";
 window.R = R;
 
 const scrub_moves = R.pipe(
