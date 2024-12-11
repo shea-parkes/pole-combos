@@ -19,19 +19,22 @@ const shuffleArray = (arr) => {
 
 const sampleOne = (arr) => arr[Math.floor(Math.random() * arr.length)];
 const getTrickName = R.path("Pole Trick");
+const getTransitions = (src, dst) =>
+  R.intersection(src["Exit States"], dst["Entry States"]);
 
 function generateCombo(size, arr) {
   const combo = [sampleOne(arr)];
   while (combo.length < size) {
+    const existingNames = R.map(getTrickName, combo);
+    const checkExisting = R.pipe(
+      getTrickName,
+      R.flip(R.includes)(existingNames),
+    );
     for (const move of shuffleArray(arr)) {
-      if (R.includes(getTrickName(move), R.map(getTrickName, combo))) {
+      if (checkExisting(move)) {
         continue;
       }
-      if (
-        R.not(
-          R.intersection(move["Entry States"], R.last(combo)["Exit States"]),
-        )
-      ) {
+      if (R.not(getTransitions(R.last(combo), move))) {
         continue;
       }
       combo.push(move);
