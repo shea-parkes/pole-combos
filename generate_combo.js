@@ -83,7 +83,8 @@ const outputUl = document.getElementById("comboOutput");
 
 function handleClick() {
   outputUl.innerHTML = "";
-  const comboSteps = R.last(generateCombo(3, window.MOVES));
+  const selectedSize = parseInt(document.getElementById("sizeSelect").value);
+  const comboSteps = R.last(generateCombo(selectedSize, window.MOVES));
   for (const step of comboSteps) {
     const stepItem = document.createElement("li");
     stepItem.textContent = step;
