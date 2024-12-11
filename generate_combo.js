@@ -77,3 +77,17 @@ function generateCombo(size, arr) {
 }
 
 window.generateCombo = generateCombo;
+
+const button = document.getElementById("generateCombo");
+const outputUl = document.getElementById("comboOutput");
+
+function handleClick() {
+  outputUl.innerHTML = "";
+  const comboSteps = R.last(generateCombo(3, window.MOVES));
+  for (const step of comboSteps) {
+    const stepItem = document.createElement("li");
+    stepItem.textContent = step;
+    outputUl.appendChild(stepItem);
+  }
+}
+button.addEventListener("click", handleClick);
