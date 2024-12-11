@@ -30,7 +30,7 @@ const getRange = R.converge(R.subtract, [Math.max, Math.min]);
 function generateCombo(size, arr) {
   const combo = [sampleOne(arr)];
   const heights = [0];
-  while (combo.length < size) {
+  for (let i = 1; i < size; i++) {
     const existingNames = R.map(getTrickName, combo);
     const checkExisting = R.pipe(
       getTrickName,
@@ -40,7 +40,7 @@ function generateCombo(size, arr) {
       if (checkExisting(move)) {
         continue;
       }
-      if (R.not(getTransitions(R.last(combo), move))) {
+      if (R.isEmpty(getTransitions(R.last(combo), move))) {
         continue;
       }
       const newAltitude = R.add(R.last(heights), getAltitudeChange(move));
@@ -53,7 +53,27 @@ function generateCombo(size, arr) {
     }
   }
 
-  return [combo, heights];
+  const descriptions = [];
+  for (let i = 0; i < size; i++) {
+    if (R.equals(0, i)) {
+      const firstTransitionState = R.pipe(
+        R.path("Entry States"),
+        sampleOne,
+      )(combo[i]);
+      descriptions.push(
+        `Start with ${firstTransitionState} into ${getTrickName(combo[i])}`,
+      );
+    } else {
+      const chosenTransitionState = sampleOne(
+        getTransitions(combo[i - 1], combo[i]),
+      );
+      descriptions.push(
+        `Transition via ${chosenTransitionState} into ${getTrickName(combo[i])}`,
+      );
+    }
+  }
+
+  return [combo, heights, descriptions];
 }
 
 window.generateCombo = generateCombo;
