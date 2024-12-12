@@ -45,16 +45,34 @@ function generateCombo(size, mandatoryMove, arr) {
       if (checkExisting(move)) {
         continue;
       }
-      if (R.isEmpty(getTransitions(R.last(combo), move))) {
-        continue;
+      if (R.gt(Math.random(), 0.5)) {
+        //Build forwards
+        if (R.isEmpty(getTransitions(R.last(combo), move))) {
+          continue;
+        }
+        const newAltitude = R.add(R.last(heights), getAltitudeChange(move));
+        if (getRange(R.append(newAltitude, heights)) > MAX_HEIGHT_RANGE) {
+          continue;
+        }
+        combo.push(move);
+        heights.push(newAltitude);
+        break;
+      } else {
+        //Build backwards
+        if (R.isEmpty(getTransitions(move, R.head(combo)))) {
+          continue;
+        }
+        const newAltitude = R.subtract(
+          R.head(heights),
+          getAltitudeChange(move),
+        );
+        if (getRange(R.append(newAltitude, heights)) > MAX_HEIGHT_RANGE) {
+          continue;
+        }
+        combo.unshift(move);
+        heights.unshift(newAltitude);
+        break;
       }
-      const newAltitude = R.add(R.last(heights), getAltitudeChange(move));
-      if (getRange(R.append(newAltitude, heights)) > MAX_HEIGHT_RANGE) {
-        continue;
-      }
-      combo.push(move);
-      heights.push(newAltitude);
-      break;
     }
   }
 
