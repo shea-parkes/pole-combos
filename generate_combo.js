@@ -27,8 +27,13 @@ const getAltitudeChange = R.pipe(
 );
 const getRange = R.converge(R.subtract, [Math.max, Math.min]);
 
-function generateCombo(size, arr) {
-  const combo = [sampleOne(arr)];
+function generateCombo(size, mandatoryMove, arr) {
+  const combo = [];
+  if (R.equals(mandatoryMove, "None")) {
+    combo.push(sampleOne(arr));
+  } else {
+    combo.push(R.find(R.propEq(mandatoryMove, "Pole Trick"), arr));
+  }
   const heights = [0];
   for (let i = 1; i < size; i++) {
     const existingNames = R.map(getTrickName, combo);
@@ -84,7 +89,11 @@ const outputUl = document.getElementById("comboOutput");
 function handleClick() {
   outputUl.innerHTML = "";
   const selectedSize = parseInt(document.getElementById("sizeSelect").value);
-  const comboSteps = R.last(generateCombo(selectedSize, window.MOVES));
+  const selectedMandatoryMove =
+    document.getElementById("requiredMoveSelect").value;
+  const comboSteps = R.last(
+    generateCombo(selectedSize, selectedMandatoryMove, window.MOVES),
+  );
   for (const step of comboSteps) {
     const stepItem = document.createElement("li");
     stepItem.textContent = step;
