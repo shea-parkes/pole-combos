@@ -6,7 +6,7 @@ const altitudeChanges = {
   Down: -1,
 };
 
-const MAX_HEIGHT_RANGE = 3;
+const MAX_HEIGHT_RANGE = 2;
 
 const shuffleArray = (arr) => {
   const newArr = arr.slice();
@@ -25,7 +25,7 @@ const getAltitudeChange = R.pipe(
   R.path("Altitude Change"),
   R.flip(R.path)(altitudeChanges),
 );
-const getRange = R.converge(R.subtract, [Math.max, Math.min]);
+const getRange = (arr) => Math.max(...arr) - Math.min(...arr);
 
 function generateCombo(size, mandatoryMove, arr) {
   const combo = [];
