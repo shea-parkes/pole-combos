@@ -29,13 +29,23 @@ const getRange = R.converge(R.subtract, [Math.max, Math.min]);
 
 function generateCombo(size, mandatoryMove, arr) {
   const combo = [];
+  const directions = [];
   if (R.equals(mandatoryMove, "None")) {
     combo.push(sampleOne(arr));
+    directions.push(...R.repeat("forward", size - 1));
   } else {
     combo.push(R.find(R.propEq(mandatoryMove, "Pole Trick"), arr));
+    const mandatoryPosition = Math.floor(Math.random() * size);
+    for (const position of R.range(0, size)) {
+      if (position < mandatoryPosition) {
+        directions.push("backward");
+      } else if (position > mandatoryPosition) {
+        directions.push("forward");
+      }
+    }
   }
   const heights = [0];
-  for (let i = 1; i < size; i++) {
+  for (const direction of directions) {
     const existingNames = R.map(getTrickName, combo);
     const checkExisting = R.pipe(
       getTrickName,
@@ -45,8 +55,7 @@ function generateCombo(size, mandatoryMove, arr) {
       if (checkExisting(move)) {
         continue;
       }
-      if (R.gt(Math.random(), 0.5)) {
-        //Build forwards
+      if (R.equals(direction, "forward")) {
         if (R.isEmpty(getTransitions(R.last(combo), move))) {
           continue;
         }
@@ -58,7 +67,6 @@ function generateCombo(size, mandatoryMove, arr) {
         heights.push(newAltitude);
         break;
       } else {
-        //Build backwards
         if (R.isEmpty(getTransitions(move, R.head(combo)))) {
           continue;
         }
