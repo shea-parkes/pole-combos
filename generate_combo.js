@@ -72,7 +72,7 @@ function generateCombo(size, mandatoryMove, arr) {
         }
         const newAltitude = R.subtract(
           R.head(heights),
-          getAltitudeChange(move),
+          getAltitudeChange(R.head(combo)),
         );
         if (getRange(R.append(newAltitude, heights)) > MAX_HEIGHT_RANGE) {
           continue;
