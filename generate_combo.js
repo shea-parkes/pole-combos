@@ -84,6 +84,7 @@ function generateCombo(size, mandatoryMove, allMoves) {
     }
   }
 
+  const minHeight = Math.min(...heights);
   const descriptions = [];
   for (let i = 0; i < size; i++) {
     if (R.equals(0, i)) {
@@ -92,14 +93,14 @@ function generateCombo(size, mandatoryMove, allMoves) {
         sampleOne,
       )(combo[0]);
       descriptions.push(
-        `Start with ${firstTransitionState} into ${getTrickName(combo[i])}`,
+        `Start with <b>${firstTransitionState}</b> into <b>${getTrickName(combo[i])}</b> <i>(height ${heights[i] - minHeight})</i>`,
       );
     } else {
       const chosenTransitionState = sampleOne(
         getTransitions(combo[i - 1], combo[i]),
       );
       descriptions.push(
-        `Transition via ${chosenTransitionState} into ${getTrickName(combo[i])}`,
+        `Transition via <b>${chosenTransitionState}</b> into <b>${getTrickName(combo[i])}</b> <i>(height ${heights[i] - minHeight})</i>`,
       );
     }
   }
@@ -122,7 +123,7 @@ function handleClick() {
   );
   for (const step of comboSteps) {
     const stepItem = document.createElement("li");
-    stepItem.textContent = step;
+    stepItem.innerHTML = step;
     outputUl.appendChild(stepItem);
   }
 }
