@@ -27,14 +27,14 @@ const getAltitudeChange = R.pipe(
 );
 const getRange = (arr) => Math.max(...arr) - Math.min(...arr);
 
-function generateCombo(size, mandatoryMove, arr) {
+function generateCombo(size, mandatoryMove, allMoves) {
   const combo = [];
   const directions = [];
   if (R.equals(mandatoryMove, "None")) {
-    combo.push(sampleOne(arr));
+    combo.push(sampleOne(allMoves));
     directions.push(...R.repeat("forward", size - 1));
   } else {
-    combo.push(R.find(R.propEq(mandatoryMove, "Pole Trick"), arr));
+    combo.push(R.find(R.propEq(mandatoryMove, "Pole Trick"), allMoves));
     const mandatoryPosition = Math.floor(Math.random() * size);
     for (const position of R.range(0, size)) {
       if (position < mandatoryPosition) {
@@ -51,7 +51,7 @@ function generateCombo(size, mandatoryMove, arr) {
       getTrickName,
       R.flip(R.includes)(existingNames),
     );
-    for (const move of shuffleArray(arr)) {
+    for (const move of shuffleArray(allMoves)) {
       if (checkExisting(move)) {
         continue;
       }
@@ -90,7 +90,7 @@ function generateCombo(size, mandatoryMove, arr) {
       const firstTransitionState = R.pipe(
         R.path("Entry States"),
         sampleOne,
-      )(combo[i]);
+      )(combo[0]);
       descriptions.push(
         `Start with ${firstTransitionState} into ${getTrickName(combo[i])}`,
       );
