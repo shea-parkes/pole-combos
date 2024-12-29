@@ -27,11 +27,14 @@ const getAltitudeChange = R.pipe(
 );
 const getRange = (arr) => Math.max(...arr) - Math.min(...arr);
 
-function generateCombo(size, mandatoryMove, allMoves) {
+function generateCombo(mandatoryMove, maxLevel, size, allMoves) {
+  const leveledMoves = R.filter(R.propSatisfies(R.gte(maxLevel), "Level"))(
+    allMoves,
+  );
   const combo = [];
   const directions = [];
   if (R.equals(mandatoryMove, "None")) {
-    combo.push(sampleOne(allMoves));
+    combo.push(sampleOne(leveledMoves));
     directions.push(...R.repeat("forward", size - 1));
   } else {
     combo.push(R.find(R.propEq(mandatoryMove, "Pole Trick"), allMoves));
@@ -51,7 +54,7 @@ function generateCombo(size, mandatoryMove, allMoves) {
       getTrickName,
       R.flip(R.includes)(existingNames),
     );
-    for (const move of shuffleArray(allMoves)) {
+    for (const move of shuffleArray(leveledMoves)) {
       if (checkExisting(move)) {
         continue;
       }
@@ -93,14 +96,14 @@ function generateCombo(size, mandatoryMove, allMoves) {
         sampleOne,
       )(combo[0]);
       descriptions.push(
-        `Start with <b>${firstTransitionState}</b> into <b>${getTrickName(combo[i])}</b> <i>(height ${heights[i] - minHeight})</i>`,
+        `Start with <b>${firstTransitionState}</b> into <b>${getTrickName(combo[i])}</b> <i>(difficulty ${combo[i]["Level"]}; height ${heights[i] - minHeight})</i>`,
       );
     } else {
       const chosenTransitionState = sampleOne(
         getTransitions(combo[i - 1], combo[i]),
       );
       descriptions.push(
-        `Transition via <b>${chosenTransitionState}</b> into <b>${getTrickName(combo[i])}</b> <i>(height ${heights[i] - minHeight})</i>`,
+        `Transition via <b>${chosenTransitionState}</b> into <b>${getTrickName(combo[i])}</b> <i>(difficulty ${combo[i]["Level"]}; height ${heights[i] - minHeight})</i>`,
       );
     }
   }
@@ -115,11 +118,20 @@ const outputUl = document.getElementById("comboOutput");
 
 function handleClick() {
   outputUl.innerHTML = "";
-  const selectedSize = parseInt(document.getElementById("sizeSelect").value);
+
   const selectedMandatoryMove =
     document.getElementById("requiredMoveSelect").value;
+  const selectedMaxLevel = parseInt(
+    document.getElementById("maxLevelSelect").value,
+  );
+  const selectedSize = parseInt(document.getElementById("sizeSelect").value);
   const comboSteps = R.last(
-    generateCombo(selectedSize, selectedMandatoryMove, window.MOVES),
+    generateCombo(
+      selectedMandatoryMove,
+      selectedMaxLevel,
+      selectedSize,
+      window.MOVES,
+    ),
   );
   for (const step of comboSteps) {
     const stepItem = document.createElement("li");
