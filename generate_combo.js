@@ -89,7 +89,8 @@ function generateCombo(mandatoryMove, maxLevel, size, allMoves) {
 
   const minHeight = Math.min(...heights);
   const descriptions = [];
-  for (let i = 0; i < size; i++) {
+  // Might have less than the desired size
+  for (let i = 0; i < combo.length; i++) {
     if (R.equals(0, i)) {
       const firstTransitionState = R.pipe(
         R.path("Entry States"),
