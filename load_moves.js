@@ -34,6 +34,10 @@ Papa.parse("moves.csv", {
       R.sort(R.comparator(R.lt)),
       addMoveOptions,
     )(window.MOVES);
+    const uniqueMoves = R.uniqBy(R.prop("Pole Trick"))(window.MOVES);
+    if (window.MOVES.length != uniqueMoves.length) {
+      throw new Error("Duplicate Move Names in input data");
+    }
   },
   error: function (error) {
     console.error("Error parsing moves.csv:", error);
