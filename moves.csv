@@ -1,61 +1,61 @@
-Pole Trick,Altitude Change,Entry States,Exit States
-pole sit,Stationary,"Brass Monkey, Upright Crucifix, Hood Ornament","Upright Crucifix, Hood Ornament, Outside Leg Hang, Brass Monkey"
-climb,Up,"Outside Leg Hang, Brass Monkey, Pole Sit, Upright Crucifix, Hood Ornament","Pole Sit, Upright Crucifix"
-curcifix upright,Stationary,,
-straight leg layout,Stationary,,
-pole handstand,Down,,
-butterfly handstand,Down,,
-V kick/hold,Stationary,"Hood Ornament, Upright Crucifix","Upright Crucifix, Pole Sit, Outside Leg Hang, Hood Ornament"
-swan/side sit,Stationary,,
-peter pan,Stationary,,
-wrist sit,Stationary,,
-crucifix foldover ,Stationary,,
-sad girl drop,Down,,
-spin climb,Up,,
-daphne,Stationary,,
-cross knee layback,Stationary,,
-invert/chopper,Up,,
-crucifix (upside down),,,
-side climb,Up,,
-hood ornament,Stationary,,
-teddy,Stationary,Hood Ornament,"Hood Ornament, Upright Crucifix, Pole Sit"
-gemini/outsie leg hang,Up,,
-scorpio/inside leg hang,Down,,
-leg switches,Stationary,"Outside Leg Hang, Inside Leg Hang, Upright Crucifix, Hood Ornament","Outside Leg Hang, Inside Leg Hang, Crucifix"
-jasmine,Up,,
-side V,Stationary,Outside Leg Hang,"Inside Leg Hang, Outside Leg Hang"
-tammy,Stationary,"Outside Leg Hang, Crucifix","Crucifix, Inside Leg Hang"
-shoulder mount kick and fan,Stationary,,
-superman,Stationary,"Outside Leg Hang, Inside Leg Hang","Outside Leg Hang, Inside Leg Hang, Crucifix"
-hip hold,Stationary,Outside Leg Hang,"Outside Leg Hang, Inside Leg Hang, Crucifix"
-butterfly,Stationary,"Outside Leg Hang, Crucifix, Upright Crucifix, Hood Ornament","Outside Leg Hang, Inside Leg Hang, Crucifix"
-flatline,Down,"Outside Leg Hang, Upright Crucifix, Crucifix, Hood Ornament, Brass Monkey","Crucifix, Brass Monkey, Inside Leg Hang"
-1 leg climb,Up,,
-cross ankle layback,Stationary,"Pole Sit, Upright Crucifix","Pole Sit, Upright Crucifix"
-front split,Up,,
-side sit,Stationary,,
-martini sit,Stationary,"Outside Leg Hang, Brass Monkey","Outside Leg Hang, Inside Leg Hang, Crucifix, Hood Ornament"
-aerial invert (forward and backward),Up,,
-shooting star,Down,"Outside Leg Hang, Crucifix",Crucifix
-shoulder dismount,Down,"Brass Monkey, Crucifix","Brass Monkey, Outside Leg Hang"
-cast,Down,,
-jasmine split,Stationary,,
-forearm climb,Up,,
-jade split,Stationary,Outside Leg Hang,"Outside Leg Hang, Inside Leg Hang"
-scorpio switches,Down,,
-apprentice,Down,"Inside Leg Hang, Pole Sit, Hood Ornament",Outside Leg Hang
-shoulder mount,Up,,
-caterpillar climbs,Up,,
-ayesha prep,Stationary,,
-knee hold,Up,Outside Leg Hang,"Outside Leg Hang, Hood Ornament"
-stargazer,Down,,
-marley,Down,,
-elbow ayesha,Stationary,"Crucifix, Brass Monkey","Outside Leg Hang, Brass Monkey, Crucifix"
-ballerina,Stationary,,
-genie,Stationary,"Outside Leg Hang, Brass Monkey","Brass Monkey, Outside Leg Hang, Hood Ornament"
-brass monkey,Stationary,,
-reverse hook invert,Up,,
-superman tumble to scorpio,Down,,
-brass situp,Up,,
-brass split,Up,,
-extended butterfly,Stationary,"Crucifix, Outside Leg Hang","Inside Leg Hang, Crucifix"
+Pole Trick,Altitude Change,Entry States,Exit States,Level
+pole sit,Stationary,"Brass Monkey, Upright Crucifix, Hood Ornament","Upright Crucifix, Hood Ornament, Outside Leg Hang, Brass Monkey",1
+climb,Up,"Outside Leg Hang, Brass Monkey, Pole Sit, Upright Crucifix, Hood Ornament","Pole Sit, Upright Crucifix",1
+curcifix upright,Stationary,,,1
+straight leg layout,Stationary,,,1
+pole handstand,Down,,,1
+butterfly handstand,Down,,,1
+V kick/hold,Stationary,"Hood Ornament, Upright Crucifix","Upright Crucifix, Pole Sit, Outside Leg Hang, Hood Ornament",1
+swan/side sit,Stationary,,,1
+peter pan,Stationary,,,1
+wrist sit,Stationary,,,1
+crucifix foldover ,Stationary,,,1
+sad girl drop,Down,,,1
+spin climb,Up,,,1
+daphne,Stationary,,,1
+cross knee layback,Stationary,,,1
+invert/chopper,Up,,,1
+crucifix (upside down),,,,1
+side climb,Up,,,1
+hood ornament,Stationary,,,1
+teddy,Stationary,Hood Ornament,"Hood Ornament, Upright Crucifix, Pole Sit",1
+gemini/outsie leg hang,Up,,,1
+scorpio/inside leg hang,Down,,,1
+leg switches,Stationary,"Outside Leg Hang, Inside Leg Hang, Upright Crucifix, Hood Ornament","Outside Leg Hang, Inside Leg Hang, Crucifix",1
+jasmine,Up,,,1
+side V,Stationary,Outside Leg Hang,"Inside Leg Hang, Outside Leg Hang",1
+tammy,Stationary,"Outside Leg Hang, Crucifix","Crucifix, Inside Leg Hang",1
+shoulder mount kick and fan,Stationary,,,1
+superman,Stationary,"Outside Leg Hang, Inside Leg Hang","Outside Leg Hang, Inside Leg Hang, Crucifix",1
+hip hold,Stationary,Outside Leg Hang,"Outside Leg Hang, Inside Leg Hang, Crucifix",2
+butterfly,Stationary,"Outside Leg Hang, Crucifix, Upright Crucifix, Hood Ornament","Outside Leg Hang, Inside Leg Hang, Crucifix",2
+flatline,Down,"Outside Leg Hang, Upright Crucifix, Crucifix, Hood Ornament, Brass Monkey","Crucifix, Brass Monkey, Inside Leg Hang",2
+1 leg climb,Up,,,2
+cross ankle layback,Stationary,"Pole Sit, Upright Crucifix","Pole Sit, Upright Crucifix",2
+front split,Up,,,2
+side sit,Stationary,,,2
+martini sit,Stationary,"Outside Leg Hang, Brass Monkey","Outside Leg Hang, Inside Leg Hang, Crucifix, Hood Ornament",2
+aerial invert (forward and backward),Up,,,2
+shooting star,Down,"Outside Leg Hang, Crucifix",Crucifix,3
+shoulder dismount,Down,"Brass Monkey, Crucifix","Brass Monkey, Outside Leg Hang",3
+cast,Down,,,3
+jasmine split,Stationary,,,3
+forearm climb,Up,,,3
+jade split,Stationary,Outside Leg Hang,"Outside Leg Hang, Inside Leg Hang",3
+scorpio switches,Down,,,3
+apprentice,Down,"Inside Leg Hang, Pole Sit, Hood Ornament",Outside Leg Hang,3
+shoulder mount,Up,,,3
+caterpillar climbs,Up,,,3
+ayesha prep,Stationary,,,3
+knee hold,Up,Outside Leg Hang,"Outside Leg Hang, Hood Ornament",3
+stargazer,Down,,,3
+marley,Down,,,3
+elbow ayesha,Stationary,"Crucifix, Brass Monkey","Outside Leg Hang, Brass Monkey, Crucifix",3
+ballerina,Stationary,,,4
+genie,Stationary,"Outside Leg Hang, Brass Monkey","Brass Monkey, Outside Leg Hang, Hood Ornament",4
+brass monkey,Stationary,,,4
+reverse hook invert,Up,,,4
+superman tumble to scorpio,Down,,,4
+brass situp,Up,,,4
+brass split,Up,,,4
+extended butterfly,Stationary,"Crucifix, Outside Leg Hang","Inside Leg Hang, Crucifix",4

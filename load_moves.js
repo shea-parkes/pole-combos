@@ -5,7 +5,13 @@ window.R = R;
 const splitStates = R.pipe(R.split(","), R.map(R.trim));
 const scrubMoves = R.pipe(
   R.filter(R.prop("Entry States")),
-  R.map(R.evolve({ "Entry States": splitStates, "Exit States": splitStates })),
+  R.map(
+    R.evolve({
+      "Entry States": splitStates,
+      "Exit States": splitStates,
+      Level: parseInt,
+    }),
+  ),
 );
 const requiredMoveSelect = document.getElementById("requiredMoveSelect");
 const addMoveOptions = (arr) => {
