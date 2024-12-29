@@ -2,29 +2,37 @@
   <body>
     <div>
       <h2>Pole Combo Generator</h2>
-      <label for="requiredMoveSelect">Required move:</label>
-      <select id="requiredMoveSelect" name="required_move">
-        <option value="None" selected>None</option>
-      </select>
-      <br />
-      <label for="maxLevelSelect">Maximum difficulty level:</label>
-      <select id="maxLevelSelect" name="combo_size">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3" selected>3</option>
-        <option value="4">4</option>
-      </select>
-      <br />
-      <label for="sizeSelect">Number of moves:</label>
-      <select id="sizeSelect" name="combo_size">
-        <option value="3" selected>3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-      </select>
-      <br />
+      <p>
+        <a href="mailto:pole.combos@bias-variance.com"
+          >Email questions/comments/suggestions</a
+        >
+      </p>
+      <p>
+        <label for="requiredMoveSelect">Required move:</label>
+        <select id="requiredMoveSelect" name="required_move">
+          <option value="None" selected>None</option>
+        </select>
+      </p>
+      <p>
+        <label for="maxLevelSelect">Maximum difficulty level:</label>
+        <select id="maxLevelSelect" name="combo_size">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3" selected>3</option>
+          <option value="4">4</option>
+        </select>
+      </p>
+      <p>
+        <label for="sizeSelect">Number of moves:</label>
+        <select id="sizeSelect" name="combo_size">
+          <option value="3" selected>3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+        </select>
+      </p>
       <button type="button" id="generateCombo">Generate Combo</button>
     </div>
     <ul id="comboOutput"></ul>
